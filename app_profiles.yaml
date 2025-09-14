@@ -1,0 +1,36 @@
+profiles:
+  - id: vaultwarden
+    name: Vaultwarden
+    description: 家庭/团队密码管理器 (Bitwarden-compatible)
+    image: vaultwarden/server:latest
+    ports:
+      - host: 8085
+        container: 80
+    volumes:
+      - ./data/vaultwarden:/data
+    category: core
+    optional: false
+    notes: "推荐反代 + TLS"
+  - id: adguardhome
+    name: AdGuardHome
+    description: 本地 DNS 屏蔽与过滤（适合网关 / 旁路由）
+    image: adguard/adguardhome:latest
+    ports:
+      - host: 3000
+        container: 3000
+      - host: 53
+        container: 53/udp
+    volumes:
+      - ./data/adguard:/opt/adguard/work
+    optional: false
+    notes: "如部署在非网关设备，请谨慎，53端口可能冲突"
+  - id: aria2
+    name: Aria2
+    description: 轻量下载服务（RPC / WebUI）
+    image: p3terx/aria2-pro:latest
+    ports:
+      - host: 6800
+        container: 6800
+    volumes:
+      - ./data/aria2:/data
+    optional: true

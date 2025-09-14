@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  openxplan:
+    build:
+      context: .
+      args:
+        DOCKER_GID: ${DOCKER_GID:-999}
+    container_name: openxplan-wanyou
+    ports:
+      - "5000:5000"
+      - "2222:2222"
+      - "8088:8088"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/app/data
+      - ./config.yaml:/app/config.yaml:ro
+    restart: unless-stopped
+    environment:
+      - DOCKER_GID=${DOCKER_GID:-999}

@@ -1,0 +1,9 @@
+flask==2.2.5
+flask-socketio==5.3.6
+eventlet==0.33.3
+psutil==5.9.8
+pyyaml==6.0.1
+docker==7.0.0
+openai==0.27.8
+ptyprocess==0.7.0
+requests==2.31.0

@@ -1,0 +1,15 @@
+core:
+  dry_run: true
+  admin_token: "change_this_to_secure_token"
+  host: "0.0.0.0"
+  port: 5000
+  openai_key: ""
+features:
+  honeypot: false
+  self_heal: true
+  assistant_openai: false
+honeypot:
+  ports: [2222, 8088]
+paths:
+  profiles: app_profiles.yaml
+  data_dir: ./data
